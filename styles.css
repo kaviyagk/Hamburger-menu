@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 25px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #000;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    font-family: Comic Sans MS;
+    font-size: 25px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #00ff00;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.hamburger .bar {
+    width: 28px;
+    height: 7px;
+    background-color: #000;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hamburger:hover .bar {
+    background: #00ff00;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 200px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease;
+        color: #e0e0e0;
+    }
+
+    .menu a {
+        margin: 15px 0;
+        font-size: 18px;
+        color: #e0e0e0;
+    }
+
+    .menu a:hover {
+        color: #00ff00;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+}
